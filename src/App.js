@@ -22,10 +22,6 @@ let content = {
 let date = "26 февр."
 
 function App() {
-
- 
-
-
   return (
     <div className="App">
       <Post author ={user}  content ={content} date={date}/>
