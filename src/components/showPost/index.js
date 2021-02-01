@@ -1,44 +1,54 @@
-import React from 'react'
+import React, { useState } from 'react'
 
+function ShowPost(props){
+    const author = props.author;
+    const content = props.content;
+    const date = props.date;
 
-
-function ShowPost(){
+    const [state, changeState] = useState(false);
+    
     return(
-        // <img> src = "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Anakin-Jedi.jpg/220px-Anakin-Jedi.jpg" alt=' '</img>
-
-        <div class = "post">
-            <div class = 'postBody'>
-                <div class = 'photo'>
-                    <img class ="userPhoto" src="https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Anakin-Jedi.jpg/220px-Anakin-Jedi.jpg" alt=" " />
+        <div className = "post">
+            <div className = 'postBody'>
+                <div className = 'photo'>
+                    <img className ="userPhoto" src={author.photo} alt=" " />
                 </div>
-                <div class = "block">
-                    <div class = 'info'>
-                        <div class = "name">
-                        Anakin Skywalker
+                <div className = "block">
+                    <div className = 'info'>
+                        <div className = "name">
+                            {author.name}
                         </div>
-                        <div class = "nickname">
-                        @dart_vader
+                        <div className = "nickname">
+                            {author.nickname}
                         </div>
-                    <div class= "date">
-                    26 февр.
+                    <div className= "date">
+                    {date}
                     </div>
                 </div>
             
-                <div class ="content">
-                WTF? Who is Ray? Why she is Skywalker? Luke...?
+                <div className ="content">
+                {content.message}
                 </div>
             
             
-            <div class="postPhoto">
-            <img src="https://specials-images.forbesimg.com/imageserve/5e63b3c8e1e617000759130e/960x0.jpg?fit=scale" alt=" " />
+            <div className="postPhoto">
+            
+            <img src={content.image} alt=" " />
             </div>
             </div>
             </div>
-        Text Text
+            <button onClick={() => changeState(!state)}>
+                like
+               
+            </button>
+            <span>
+                    {
+                    state === true ? " you like this photo" : " "
+                    }
+            </span>
         </div>
 
     )
 }
-
 
 export default ShowPost;
